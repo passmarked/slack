@@ -1,0 +1,45 @@
+{
+  "name": "passmarked-slack",
+  "version": "0.0.0",
+  "description": "The official Passmarked (passmarked.com) bot for Slack",
+  "homepage": "http://slack.passmarked.com",
+  "author": "Declan de Wet <declan@io.co.za>",
+  "private": true,
+  "directories": {
+    "lib": "lib"
+  },
+  "main": "lib",
+  "scripts": {
+    "start": "NODE_ENV=production pm2 start app/index.js -i 0",
+    "test": "echo \"No test specified\"",
+    "build": "mkdir -p app/ && babel lib --out-dir app --optional runtime --stage 0",
+    "dev": "NODE_ENV=development nodemon --exec babel-node --stage 0 -- lib/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/passmarked/bot"
+  },
+  "bugs": {
+    "url": "https://github.com/passmarked/bot/issues",
+    "email": "feedback@passmarked.com"
+  },
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "babel-runtime": "^5.8.20",
+    "nodemon": "^1.4.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "bull": "^0.4.0",
+    "express": "^4.13.3",
+    "helmet": "^0.10.0",
+    "lodash": "^3.10.1",
+    "request": "^2.61.0",
+    "trine": "^0.1.1"
+  },
+  "license": "SEE LICENSE IN license.md",
+  "engines": {
+    "node": ">= 0.12.0",
+    "iojs": ">= 1.0.2"
+  }
+}
