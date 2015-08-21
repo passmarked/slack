@@ -13,7 +13,7 @@
     "start": "NODE_ENV=production pm2 start app/index.js -i 0",
     "test": "echo \"No test specified\"",
     "build": "mkdir -p app/ && babel lib --out-dir app --optional runtime --stage 0",
-    "dev": "NODE_ENV=development nodemon --exec babel-node --stage 0 -- lib/index.js | bunyan"
+    "dev": "nodemon --exec babel-node --stage 0 -- lib/index.js | bunyan"
   },
   "repository": {
     "type": "git",
