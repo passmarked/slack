@@ -1,0 +1,9 @@
+.dockerignore
+Dockerfile
+*.md
+!license.md
+Vagrantfile
+.vagrant
+.editorconfig
+.env-example
+node_modules
