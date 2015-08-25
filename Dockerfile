@@ -1,11 +1,10 @@
-# Base image for ubuntu 14.04
-FROM gcr.io/passmarked/base.node:latest
+FROM ubuntu:trusty
 
-# globally install items
-RUN npm install babel coffee-script gulp -g
+RUN apt-get update -y
+RUN apt-get install -y git
+RUN apt-get install -y nodejs
+RUN apt-get install -y npm
 
-# run install development NPM
 RUN NODE_ENV=development npm install
 
-# do a NPM install
 RUN npm run build

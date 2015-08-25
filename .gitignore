@@ -38,3 +38,5 @@ app
 
 # don't stage sensitive environment info
 .env
+
+.vagrant
