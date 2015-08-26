@@ -3,6 +3,7 @@ FROM ubuntu:trusty
 MAINTAINER Passmarked <devops@passmarked.com>
 
 RUN apt-get update && apt-get install -y \
+  curl \
   nodejs \
   nodejs-legacy \
   npm
@@ -12,19 +13,19 @@ RUN npm i pm2 -g
 ADD package.json /tmp/package.json
 
 RUN cd /tmp \
-  && NODE_ENV=development npm install
+  && npm install
 
-RUN mkdir -p /app \
-  && cp -a /tmp/node_modules /app
+RUN mkdir -p /dist \
+  && cp -a /tmp/node_modules /dist
 
-ADD . /app
+ADD . /dist
 
-RUN cd /app \
-  && npm run build
+WORKDIR /dist
 
-WORKDIR /app
+ENV NODE_ENV production
 
-EXPOSE 5000
+RUN npm run build
+
 EXPOSE 8080
 
 CMD ["npm", "start"]

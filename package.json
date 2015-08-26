@@ -10,7 +10,7 @@
   },
   "main": "lib",
   "scripts": {
-    "start": "NODE_ENV=production pm2 start app/index.js -i 0",
+    "start": "pm2 start app/index.js -i 0",
     "test": "echo \"No test specified\"",
     "build": "mkdir -p app/ && babel lib --out-dir app --optional runtime --stage 0",
     "dev": "nodemon --exec babel-node --stage 0 -- lib/index.js | bunyan"
