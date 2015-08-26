@@ -1,17 +1,26 @@
 #!/bin/bash
 
-sudo apt-get update
+# update and install packages
+apt-get update && apt-get -y install \
+  build-essential \
+  tcl8.5
 
-sudo apt-get -y install build-essential redis-server
-
+# download and install node.js
 wget http://nodejs.org/dist/v0.12.7/node-v0.12.7-linux-x64.tar.gz
+tar -zxf node-v0.12.7-linux-x64.tar.gz
+mv node-v0.12.7-linux-x64/ /opt/node/
+ln -s /opt/node/bin/node /usr/bin/node
+ln -s /opt/node/bin/npm /usr/bin/npm
 
-sudo tar -zxf node-v0.12.7-linux-x64.tar.gz
+# download and install redis
+wget http://download.redis.io/releases/redis-stable.tar.gz
+tar -xvzf redis-stable.tar.gz && cd redis-stable
+make
+make test
+make install
+./utils/install_server.sh
+cd ~
 
-sudo mv node-v0.12.7-linux-x64/ /opt/node/
-sudo ln -s /opt/node/bin/node /usr/bin/node
-sudo ln -s /opt/node/bin/npm /usr/bin/npm
-
-cd /vagrant
-sudo npm install
-sudo npm run dev
+# run processes
+service redis_6379 start
+cd /vagrant && sudo npm install

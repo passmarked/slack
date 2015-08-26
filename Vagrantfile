@@ -24,6 +24,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "setup", type: "shell" do |s|
     s.path = "scripts/build.sh"
+    s.keep_color = true
   end
 
 end
