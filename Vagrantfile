@@ -6,6 +6,8 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   config.vm.network :forwarded_port, guest: 5000, host: 5000, auto_correct: true
+  config.vm.network "forwarded_port", guest: 27017, host: 27017
+  config.vm.network :forwarded_port, guest: 6379, host: 6379
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--hwvirtex", "on"]

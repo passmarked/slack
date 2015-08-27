@@ -14,10 +14,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# fix pesky language issue
+export LC_ALL="en_US.UTF-8"
+locale-gen en_US.UTF-8
+
 # update and install packages
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
 apt-get update && apt-get -y install \
   build-essential \
-  tcl8.5
+  tcl8.5 \
+  mongodb-org
 
 # download and install node.js
 wget http://nodejs.org/dist/v0.12.7/node-v0.12.7-linux-x64.tar.gz
@@ -34,6 +41,3 @@ make test
 make install
 ./utils/install_server.sh
 cd ~
-
-# run processes
-service redis_6379 start
