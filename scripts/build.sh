@@ -23,4 +23,3 @@ cd ~
 
 # run processes
 service redis_6379 start
-cd /vagrant && sudo npm install
