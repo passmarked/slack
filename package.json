@@ -10,18 +10,18 @@
   },
   "main": "lib",
   "scripts": {
-    "start": "pm2 start app/index.js -i 0",
+    "start": "node app/index.js",
     "test": "echo \"No test specified\"",
     "build": "mkdir -p app/ && babel lib --out-dir app --optional runtime --stage 0",
     "dev": "nodemon --exec babel-node --stage 0 -- lib/index.js | bunyan"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/passmarked/bot"
+    "url": "https://github.com/passmarked/slack"
   },
   "bugs": {
-    "url": "https://github.com/passmarked/bot/issues",
-    "email": "feedback@passmarked.com"
+    "url": "https://github.com/passmarked/slack/issues",
+    "email": "slack@passmarked.com"
   },
   "devDependencies": {
     "babel": "^5.8.21",
@@ -40,7 +40,7 @@
     "when": "^3.7.3",
     "ws": "^0.8.0"
   },
-  "license": "SEE LICENSE IN license.md",
+  "license": "SEE LICENSE IN license.txt",
   "engines": {
     "node": ">= 0.12.0",
     "iojs": ">= 1.0.2"
