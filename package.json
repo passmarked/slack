@@ -28,6 +28,7 @@
     "nodemon": "^1.4.1"
   },
   "dependencies": {
+    "agenda": "^0.6.28",
     "babel-runtime": "^5.8.20",
     "body-parser": "^1.13.3",
     "bull": "^0.4.0",
