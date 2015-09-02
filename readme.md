@@ -24,10 +24,13 @@ You will also need to have some environment variables set. Take a look at the
 remove the `-example` suffix and the application will use the variables defined
 there.
 
+Clone the repository and run `$ npm install` then `$ npm run dev` to run
+the project locally. For production, refer to the [Dockerfile](Dockerfile).
+
 ## Contributing
 
-If you wish to improve this project, are have become a maintainer, please read
-the [contribution guidelines](contributing.md)
+If you wish to improve this project, or you are an official maintainer,
+please read the [contribution guidelines](contributing.md)
 
 ## License
 
