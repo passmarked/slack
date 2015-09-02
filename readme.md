@@ -13,6 +13,14 @@ job queues. There are two job queues - the first deals with long-lived processes
 (keeping the bots online and chatting) and the other deals with cleaning invalid
 tokens from the database every 6 hours.
 
+Install a bot on a Slack team by passing a Bot User API token to
+`/api/install?token=<insert token here>`.
+
+Make announcements to all teams by passing a token you've defined as
+an environment variable "`PASSMARKED_SLACK_SECURITY_TOKEN`" as well
+as Slack's expected `chat.postMessage` method query parameters to
+`/api/announce?token=<your token>`.
+
 ## Installation
 
 Installing `passmarked-slack` requires a number of things. The first thing is
